@@ -88,10 +88,11 @@ void print_polynomial(Polynomial *p){
     /*
     
     */
-    printf("\rPolynomial");
+    printf("\n\n----------");
+    printf("\nPolynomial");
     printf("\n----------");
     printf("\nDegree: %d", p->degree);
-    printf("\nCoefficient field: %s", FieldSymbols[p->coeff_field]);
+    printf("\nCoefficient field: %s\n", FieldSymbols[p->coeff_field]);
     
     switch(p->coeff_field)
     {
@@ -108,7 +109,7 @@ void print_polynomial(Polynomial *p){
         default:
             printf("\nCoefficients: ");
             for (int i=0; i < p->degree; i++){
-                printf("%.2lf ", ((double*)p->coeffs)[i]);
+                printf("%.5f ", ((double*)p->coeffs)[i]);
             }
             break;
     }
@@ -116,10 +117,16 @@ void print_polynomial(Polynomial *p){
 
 int main(){
     Polynomial test = init_polynomial(2, INTEGER);
+    Polynomial test2 = init_polynomial(3, REAL);
+    Polynomial test3 = init_polynomial(1, INT_MOD_K);
 
     print_polynomial(&test);
+    print_polynomial(&test2);
+    print_polynomial(&test3);
 
     free_polynomial(&test);
+    free_polynomial(&test2);
+    free_polynomial(&test3);
 
     return 0;
 }
