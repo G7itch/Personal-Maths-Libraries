@@ -1,6 +1,5 @@
 #pragma once
-#include <stdbool.h>
-#include <limits.h>
+//#include <limits.h> will probably need this for infinity representation deg(0)
 
 typedef enum Field {
     INTEGER,
